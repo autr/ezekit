@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/autr/ezekit/issues"
   },
-  "homepage": "https://github.com/autr/ezekit#readme"
+  "homepage": "https://github.com/autr/ezekit#readme",
+  "dependencies": {
+    "@vimeo/player": "^2.15.3",
+    "dayjs": "^1.10.5",
+    "file-size": "^1.0.0",
+    "svelte": "^3.38.2"
+  }
 }
