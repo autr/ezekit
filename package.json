@@ -1,0 +1,24 @@
+{
+  "name": "ezekit",
+  "version": "1.0.0",
+  "description": "EZE / SvelteKit components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/autr/ezekit.git"
+  },
+  "keywords": [
+    "eze",
+    "sveltekit",
+    "svelte"
+  ],
+  "author": "GS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/autr/ezekit/issues"
+  },
+  "homepage": "https://github.com/autr/ezekit#readme"
+}

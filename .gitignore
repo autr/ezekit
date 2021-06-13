@@ -1,0 +1,16 @@
+.DS_Store
+node_modules
+/.svelte
+# /build
+/functions
+/tv-files
+/static/posts
+/static/pages
+/static/fonts
+pnpm-lock.yaml
+src/lib/ezelte
+src/lib/rad-and-cool-icons
+.svelte-kit
+docs/_app
+docs/kit
+.npmrc
