@@ -1,6 +1,6 @@
 <script>
 
-	import { scroll } from './stores.js'
+    export let scroller = 0
 
 	let class_ = ""
 	export { class_ as class }
@@ -9,8 +9,8 @@
 	export let el
 
 	function set( e, name ) {
-		$scroll[name + 'Top'] = e.target.scrollTop
-		$scroll[name + 'Height'] = e.target.scrollHeight
+		scroller[name + 'Top'] = e.target.scrollTop
+		scroller[name + 'Height'] = e.target.scrollHeight
 	}
 
 	const width = '400px'

@@ -1,4 +1,4 @@
-import dayjs from 'dayjs'
+import dayjs from 'dayjs/esm/index.js'
 
 const year = date => (new Date( date * 1000 )).getFullYear()
 const browser = typeof window !== 'undefined' && typeof window.document !== 'undefined'
@@ -50,7 +50,10 @@ const extractDimensions = (file) => {
 	return { width, height, ratio }
 }
 
-const timestamp = ( d, format ) => (dayjs( typeof(d) == 'string' ? new Date(d) : d  * 1000 ).format(format))
+const timestamp = ( date, format ) => {
+	date = typeof(date) == 'string' ? new Date(date) : date  * 1000
+	return (dayjs( date ).format(format))
+}
 
 const isElectron = e => {
 	if (typeof window !== 'undefined' && typeof window.process === 'object' && window.process.type === 'renderer') return true

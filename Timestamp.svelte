@@ -1,10 +1,9 @@
 <script>
 
-	import { dateFormat } from './stores.js'
 	import utils from './utils.js'
 
 	export let relative = false
-	export let format = $dateFormat
+	export let format = 'DD-MM-YYYY HH:mm:ss'
 	export let date
 
 	let class_ = ""

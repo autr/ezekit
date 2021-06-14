@@ -1,8 +1,10 @@
 <script>
-	import { centroid, scroll } from './stores.js'
 	import { onMount, onDestroy } from 'svelte'
 	import utils from './utils.js'
 	import ListItem from './ListItem.svelte'
+
+	export let centroid // IMPORTANT
+	export let scroller // IMPORTANT
 
 	export let component
 	export let keys
@@ -25,7 +27,7 @@
 	function tick( ) {
 
 		if (browser) {
-			const bottom = $scroll.itemsTop > $scroll.itemsHeight - (window.innerHeight * 1.5)
+			const bottom = scroller.itemsTop > scroller.itemsHeight - (window.innerHeight * 1.5)
 			if ( bottom ) more()
 			if (!finished) {
 				window.requestAnimationFrame(tick)
@@ -111,7 +113,7 @@
 			<div 
 				class="flex b1-solid grow rel"
 				style={`margin-top: -1px;width: 5px;flex-basis: ${((100/total)*item.height).toFixed(1)}%`}>
-				<span class="fill" class:filled={ item.title == $centroid.title } />
+				<span class="fill" class:filled={ item.title == centroid.title } />
 			</div>
 		{/each}
 	</div>
