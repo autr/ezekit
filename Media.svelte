@@ -29,7 +29,7 @@
 	export let controls = false
 
 
-	const DEBUG = false
+	const DEBUG = true
 
 	let class_ = ""
 	export { class_ as class }
@@ -70,7 +70,7 @@
 		let { id, location } = file_
 		let { ext, name } = file_?.item || {}
 		ratio = file_?.item?.ratio
-		ext = '.' + ext
+		ext = ext ? '.' + ext : ext
 
 		if (DEBUG) console.log('[media] syncing file', location, id, format)
 
@@ -141,7 +141,8 @@
 			}
 
 		} else {
-			console.log('[media] files is missing id location ext name')
+			console.error('[media] media file is missing id location ext name:', { id, location, ext, name}, file_ )
+			console.error('[media] media file:', file_ )
 		}
 
 	}

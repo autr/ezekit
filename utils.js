@@ -1,4 +1,4 @@
-import dayjs from 'dayjs/esm/index.js'
+import dayjs from 'dayjs'
 
 const year = date => (new Date( date * 1000 )).getFullYear()
 const browser = typeof window !== 'undefined' && typeof window.document !== 'undefined'
@@ -18,6 +18,23 @@ const posts = (items, y) => {
 	years.push( 'all' )
 	years.reverse()
 	return { years, data }
+}
+
+const safeUrl = url => (!/^https?:\/\//i.test(url)) ? 'https://' + url : url
+
+function subdivideArray( arr, cols ) {
+	let per = arr.length / cols
+	let out = []
+	let cp = JSON.parse(JSON.stringify(arr))
+	while (cp.length) {
+		if (out.length == cols) {
+			out[out.length-1] = out[out.length-1].concat(cp)
+			cp = []
+		} else {
+			out.push( cp.splice(0, per) )
+		}
+	}
+	return out.reverse()
 }
 
 const isFileType = ( str, file ) => {
@@ -51,6 +68,7 @@ const extractDimensions = (file) => {
 }
 
 const timestamp = ( date, format ) => {
+	// return ''
 	date = typeof(date) == 'string' ? new Date(date) : date  * 1000
 	return (dayjs( date ).format(format))
 }
@@ -89,5 +107,7 @@ export default {
 	timestamp,
 	isElectron,
 	device,
-	slugify
+	slugify,
+	subdivideArray,
+	safeUrl
 }
