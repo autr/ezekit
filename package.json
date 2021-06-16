@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "EZE / SvelteKit components",
   "svelte": "index.js",
-  "module": "dist/index.mjs",
-  "main": "dist/index.js",
+  "module": "index.mjs",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

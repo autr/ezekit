@@ -72,6 +72,10 @@ const timestamp = ( date, format ) => {
 	date = typeof(date) == 'string' ? new Date(date) : date  * 1000
 	return (dayjs( date ).format(format))
 }
+const isostring = ( date, format ) => {
+	date = typeof(date) == 'string' ? new Date(date) : date  * 1000
+	return (dayjs( date ).toISOString())
+}
 
 const isElectron = e => {
 	if (typeof window !== 'undefined' && typeof window.process === 'object' && window.process.type === 'renderer') return true
