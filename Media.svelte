@@ -27,7 +27,7 @@
 	export let root
 	export let force = false
 	export let controls = false
-
+	export let stretch = 'width' // or height
 
 	const DEBUG = true
 
@@ -247,8 +247,7 @@
 		width: 'media-width-' + width,
 		height: 'media-height-' + height,
 		ratio: 'media-ratio-' + ratio,
-		orientation: 'media-orientation-' + orientation,
-		misc: 'media block rel w100pc ' + class_
+		orientation: 'media-orientation-' + orientation
 	}
 
 	function onVideoClick( e ) {
@@ -282,12 +281,13 @@
 		}
 	}
 
+	$: stretchClasses = stretch == 'width' ? 'w100pc h-auto' : 'w-auto h100pc'
 
 </script>
 
 <span 
 	bind:this={el}
-	class={ Object.values( identifiers ).join(' ') }
+	class={ `${Object.values( identifiers ).join(' ')} media block rel overflow-hidden ${stretchClasses} ${class_}` }
 	style={`${style_};${cross};`}>
 		{#if error}
 			<div class="fill flex row-center-center">
@@ -296,7 +296,7 @@
 		{:else}
 			{#if is('image') }
 				<img 
-					class="embed fill w100pc h-auto"
+					class="embed fill {stretchClasses}"
 					class:active={!hidden}
 					{width}
 					{height} 
@@ -307,7 +307,7 @@
 					on:play={ onVideoPlay }
 					on:click={ onVideoClick }
 					on:fullscreenchange={ onFullscreenChange }
-					class="embed fill w100pc h-auto z-index66"
+					class="embed fill {stretchClasses} z-index66"
 					class:active={!hidden}
 					class:playing={!paused}
 					class:paused={paused}
@@ -331,7 +331,7 @@
 			{/if}
 		{/if}
 		<canvas 
-			class="hidden w100pc h-auto"
+			class="hidden {stretchClasses}"
 			{width}
 			{height} />
 </span>
