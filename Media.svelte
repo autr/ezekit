@@ -28,6 +28,7 @@
 	export let force = false
 	export let controls = false
 	export let stretch = 'width' // or height
+	export let align = 'start'
 
 	const DEBUG = true
 
@@ -281,13 +282,29 @@
 		}
 	}
 
-	$: stretchClasses = stretch == 'width' ? 'w100pc h-auto' : 'w-auto h100pc'
+	let alignments = {
+		height: {
+			wh: 'w-auto h100pc ',
+			start: '',
+			center: 'l50pc translate-500 ',
+			end: 'l50pc translate-500 ',
+		},
+		width: {
+			wh: 'w100pc h-auto ',
+			start: '',
+			center: 't50pc translate0-50 ',
+			end: 'b50pc translate0-50 ',
+		}
+	}
+
+	$: stretchClasses = (alignments[stretch]?.wh || '') + (alignments[stretch]?.[align] || '')
+
 
 </script>
 
 <span 
 	bind:this={el}
-	class={ `${Object.values( identifiers ).join(' ')} media block rel overflow-hidden ${stretchClasses} ${class_}` }
+	class={ `${Object.values( identifiers ).join(' ')} media block rel overflow-hidden ${class_}` }
 	style={`${style_};${cross};`}>
 		{#if error}
 			<div class="fill flex row-center-center">
