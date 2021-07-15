@@ -22,7 +22,7 @@
     on:hover
     bind:this={el}
     on:scroll={ e => set( e, 'items')} 
-    class="bg flex w100vw h100vh overflow-auto" style="overflow-x: hidden">
+    class="bg flex w100vw h100vh overflow-auto {class_}" style="overflow-x: hidden; {style_}">
     <div 
         class="flex column-stretch-flex-start margin-auto md-container h100vh grow maxw100vw">
         <slot name="header" />

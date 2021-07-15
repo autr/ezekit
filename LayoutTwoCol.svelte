@@ -23,7 +23,7 @@
 	on:hover
 	bind:this={el}
     on:scroll={ e => set( e, 'items')} 
-    class="flex row-center-stretch w100vw h100vh overflow-auto" style="overflow-x: hidden">
+    class="flex row-center-stretch w100vw h100vh overflow-auto {class_}" style="overflow-x: hidden; {style_}">
     <div class="md-container flex ">
 
 		<div class="abs w{width} pr1 br mr1 overflow-auto flex column-start-space-between">
