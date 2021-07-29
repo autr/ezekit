@@ -121,13 +121,15 @@
 <div 
 	{id}
 	bind:this={el}
-	class="flex column grow {class_}"
+	class={class_}
 	style={style_}>
 
 
 	<slot name="body" />
 	{#each data.slice(0, count) as item, index}
-		{#if !refresh}<ListItem {index} {component} {keys} data={item} />{/if}
+		{#if !refresh}
+			<ListItem {index} {component} {keys} data={item} />
+		{/if}
 	{/each	}
 	<footer class="flex column-center-center cmb1">
 		{#if !finished} 

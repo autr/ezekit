@@ -5,11 +5,11 @@ let dayjs = !dayjsCJS ? dayjsESM : dayjsCJS
 
 const year = date => (new Date( date * 1000 )).getFullYear()
 const browser = typeof window !== 'undefined' && typeof window.document !== 'undefined'
-const posts = (items, y) => {
+const posts = (items, y, default_) => {
 
 	// posts to sorted array of years
-
-	if (y == 'all') y = null
+	if (!default_) default_ = 'all'
+	if (y == default_) y = null
 	let years = []
 	const data = items.filter( item => {
 		const year_ = year(item.date)
@@ -18,7 +18,7 @@ const posts = (items, y) => {
 		return year_ == parseInt( y ) 
 	})
 	years.sort( (a,b) => a - b )
-	years.push( 'all' )
+	years.push( default_ )
 	years.reverse()
 	return { years, data }
 }

@@ -234,7 +234,7 @@
 	$: update( scroller, centroid )
 
 	$: color = colors?.vibrant || 'var(--color)'
-	$: cross = `background-image: linear-gradient(to top left, transparent 0%, transparent calc(50% - var(--stroke-width)), ${color} 50%, transparent calc(50% + var(--stroke-width)), transparent 100%), linear-gradient(to top right, transparent 0%, transparent calc(50% - var(--stroke-width)), ${color} 50%, transparent calc(50% + var(--stroke-width)), transparent 100%);box-shadow:inset 0px 0px 0px 1px ${color}`
+	$: cross = `background-image: linear-gradient(to top left, transparent 0%, transparent calc(50% - var(--stroke-width)), ${color} 50%, transparent calc(50% + var(--stroke-width)), transparent 100%), linear-gradient(to top right, transparent 0%, transparent calc(50% - var(--stroke-width)), ${color} 50%, transparent calc(50% + var(--stroke-width)), transparent 100%);box-shadow:inset 0px 0px 0px var(--stroke-width) ${color}`
 
 	const pixel = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
 
