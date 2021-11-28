@@ -1,7 +1,7 @@
-import dayjsCJS from 'dayjs'
-import dayjsESM from 'dayjs/esm'
+// import dayjsCJS from 'dayjs'
+// import dayjsESM from 'dayjs/esm'
 
-let dayjs = !dayjsCJS ? dayjsESM : dayjsCJS
+// let dayjs = !dayjsCJS ? dayjsESM : dayjsCJS
 
 const year = date => (new Date( date * 1000 )).getFullYear()
 const browser = typeof window !== 'undefined' && typeof window.document !== 'undefined'
@@ -72,11 +72,13 @@ const extractDimensions = (file) => {
 
 const timestamp = ( date, format ) => {
 	date = typeof(date) == 'string' ? new Date(date) : date  * 1000
-	return (dayjs( date ).format(format))
+	return '?'
+	// return (dayjs( date ).format(format))
 }
 const isostring = ( date, format ) => {
 	date = typeof(date) == 'string' ? new Date(date) : date  * 1000
-	return (dayjs( date ).toISOString())
+	return '?'
+	// return (dayjs( date ).toISOString())
 }
 
 const isElectron = e => {
